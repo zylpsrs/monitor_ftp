@@ -13,3 +13,7 @@
   lib/mycfg.py：从config配置文件中获取ftp与db元数据
   lib/myftp.py：walk方法模拟os.walk方法，其返回根目录，子目录元组，文件字典
   lib/myora.py：将获取到的ftp文件信息插入到对应的表中，每次插入会将表truncate
+
+# require
+
+  程序需要安装oracle客户端并配置LD_LIBRARY_PATH环境变量
