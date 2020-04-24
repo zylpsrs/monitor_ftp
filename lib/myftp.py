@@ -41,3 +41,6 @@ class myftp (object):
             new_path = os.path.join(top, dirname)
             for x in self.walk(new_path):
                 yield x
+
+    def close(self):
+        self.ftp.close()
