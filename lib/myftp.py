@@ -5,11 +5,14 @@ from dateutil import parser
 class myftp (object):
     ''' ref https://docs.python.org/2/library/ftplib.html '''
     def __init__(self, host, user, passwd, port=21):
+        ''' login ftp '''
         self.ftp = FTP()
         self.ftp.connect(host, port)
         self.ftp.login(user, passwd)
 
     def listdir(self, path):
+        ''' resecure get dir files info, return dis(list),nondirs(dict),
+        nodirs key is the filename, values include file size and modify time '''
         file_list, dirs, nondirs = [], [], {} 
         try:
             self.ftp.cwd(path)
@@ -34,6 +37,7 @@ class myftp (object):
             return dirs, nondirs
 
     def walk(self, top):
+        ''' like os.walk, return topdir(string), dirs(subdir), files(dict) '''
         dirs, nondirs = self.listdir(top)
         top = self.ftp.pwd()
         yield top, dirs, nondirs
