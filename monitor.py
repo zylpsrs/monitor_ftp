@@ -37,6 +37,6 @@ if __name__ == "__main__":
                   rows = []
           db.insert_table(rows)
 
-	ftp.close()
+        ftp.close()
 
     db.close()
