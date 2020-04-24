@@ -1,6 +1,6 @@
 # monitor_ftp
 
-  主程序为monitor.py，其功能：
+  主程序为monitor.py，可配置crontab定时执行此程序，其功能：
 
     1. 程序可通过环境变量CFG_FILE定义配置文件位置
     2. 程序可通过境变量FTP_DIR定义需通过FTP递归抓取文件元数据的目录
