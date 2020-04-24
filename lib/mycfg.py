@@ -16,6 +16,7 @@ class mycfg (object):
         for host in ftps:
             ftp_i = dict(self.config.items(host, raw=True))
             ftp_i.setdefault('port', 21)
+            ftp_i.setdefault('ftp_top_dir', '.')
             ftp_info.append(ftp_i)
         return ftp_info
 

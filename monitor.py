@@ -9,7 +9,6 @@ from lib.myora import myora
 from lib.mycfg import mycfg
 
 cfg_file = "cfg/config.ini" if (os.environ.get("CFG_FILE") is None) else os.environ.get("CFG_FILE")
-ftp_dir  = "." if (os.environ.get("FTP_DIR") is None) else os.environ.get("FTP_DIR")
 
 if __name__ == "__main__":
     # get ftp and db cfg 
@@ -25,7 +24,7 @@ if __name__ == "__main__":
         # init ftp instance
         ftp = myftp(ftp_h['host'], ftp_h['username'], ftp_h['password'], int(ftp_h['port']))
 
-        for root, dirs, files in ftp.walk(ftp_dir):
+        for root, dirs, files in ftp.walk(ftp_h.get('ftp_top_dir')):
           rows = []
           for name,meta in files.items():
               row = ('%s:%s' % (ftp_h['host'],ftp_h['port']), 
